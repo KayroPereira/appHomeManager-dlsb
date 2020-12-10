@@ -170,6 +170,9 @@
     <string name="ssid">SSID:</string>
     <string name="unidentified">unidentified</string>
 
+    <!-- pump protection -->
+    <string name="pump">Bomba</string>
+
     <!-- water tank -->
     <string name="endereco">Endereço</string>
     <string name="nivel">Nível</string>

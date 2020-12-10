@@ -419,11 +419,11 @@
                         android:id="@+id/ctDoorLockDB"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/guideline5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="gone">
+                        app:layout_constraintTop_toBottomOf="@id/guideline9">
 
                         <ImageView
                             android:id="@+id/ivDoorLockDB"
@@ -453,10 +453,11 @@
                         android:id="@+id/ctControlDB"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/guideline7"
                         app:layout_constraintStart_toStartOf="@+id/guideline5"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@id/guideline9">
 
                         <ImageView
                             android:id="@+id/ivControlDB"
@@ -487,8 +488,8 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         app:layout_constraintBottom_toTopOf="@+id/guideline9"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                        app:layout_constraintStart_toEndOf="@id/guideline5"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
@@ -519,10 +520,10 @@
                         android:id="@+id/ctBuyListDB"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline9"
                         app:layout_constraintEnd_toStartOf="@+id/guideline5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/guideline9">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:id="@+id/ivBuyListDB"
@@ -552,10 +553,10 @@
                         android:id="@+id/ctSetupDB"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline9"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toBottomOf="@id/guideline9">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:id="@+id/ivSetupDB"

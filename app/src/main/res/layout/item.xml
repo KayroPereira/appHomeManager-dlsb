@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/tvProdutoItem"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/acme"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/colorTab1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etQuantidade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etQuantidade"
+        android:layout_width="47dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:fontFamily="@font/acme"
+        android:inputType="number|textPersonName"
+        android:numeric="decimal"
+        android:textAlignment="center"
+        android:textColor="@color/colorTab1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clItem_2"
+        app:layout_constraintStart_toEndOf="@+id/tvProdutoItem"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSendLTS"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:tag="ivSendLTS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItem_2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivSendLTS"
+        app:layout_constraintStart_toEndOf="@+id/etQuantidade"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup
+            android:id="@+id/rgUnidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:tag="rgUnidade"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbUn"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:button="@drawable/rb_personalizado"
+                android:checked="false"
+                android:fontFamily="@font/acme"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:text="un"
+                android:textColor="@color/colorTab1"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rbMl"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:button="@drawable/rb_personalizado"
+                android:fontFamily="@font/acme"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:text="ml"
+                android:textColor="@color/colorTab1"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rbKg"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:button="@drawable/rb_personalizado"
+                android:scaleX="1.0"
+                android:scaleY="1.0"
+                android:text="Kg"
+                android:textColor="@color/colorTab1"
+                android:textSize="14sp" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    -->
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorMyListCategory">#F6F2F3</color>
+
+    <!--<color name="colorMyListCategory">#B00020</color>-->
+    <!--color name="colorPurchasedProducts">#CC9DA6</color-->
+    <!--color name="colorFontMain">#E00055FF</color-->
+    <!--color name="colorFontMain">#ED00BCD4 #E071CF5E</1color-->
+
+    <color name="colorFontSaveProduct">#C5FBF9F9</color>
+    <color name="colorFontCategoria">#C5FBF9F9</color>
+
+    <!--<color name="colorFontItemCategoria">#C5FBF9F9</color>-->
+    <color name="colorFontItemCategoria">#FFFFFF</color>
+    <color name="colorFontItem">#C5ED0909</color>
+
+    <color name="colorFontMain">#C5ED0909</color>
+    <!--<color name="colorPurchasedProducts">#CAC82746</color>-->
+    <color name="colorPurchasedProducts">#6CFF0000</color>
+    <color name="colorFontProduct">#ED00BCD4</color>
+
+    <color name="colorTab0">#C5ED0909</color>
+    <color name="colorTab1">#D60024EC</color>
+    <color name="colorTab2">#0E9A8D</color>
+</resources>

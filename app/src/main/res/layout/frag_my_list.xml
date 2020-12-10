@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/frmL1"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".listacompras.FragMyList">
+
+<!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/glMyList_1">
+
+            <ImageView
+                android:id="@+id/ivClearBasketMYL"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:tag="clearBasket"
+                app:layout_constraintStart_toStartOf="@+id/glMyList_4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/clbasket" />
+
+            <ImageView
+                android:id="@+id/ivClearListMYL"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="5dp"
+                android:tag="clearList"
+                app:layout_constraintEnd_toStartOf="@+id/tvClearListMYL"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cllist" />
+
+            <TextView
+                android:id="@+id/tvClearBasketMYL"
+                android:layout_width="105dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/acme"
+                android:gravity="left|center_vertical"
+                android:tag="clearBasket"
+                android:text="@string/clearBasket"
+                android:textColor="@color/colorFontMain"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/ivClearBasketMYL"
+                app:layout_constraintStart_toEndOf="@+id/ivClearBasketMYL" />
+
+            <TextView
+                android:id="@+id/tvClearListMYL"
+                android:layout_width="99dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/acme"
+                android:gravity="left|center_vertical"
+                android:tag="clearList"
+                android:text="@string/clearList"
+                android:textColor="@color/colorFontMain"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/ivClearListMYL"
+                app:layout_constraintEnd_toStartOf="@+id/glMyList_5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glMyList_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.93" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glMyList_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glMyList_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.83" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glMyList_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glMyList_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/glMyList_1"
+            app:layout_constraintEnd_toStartOf="@+id/glMyList_3"
+            app:layout_constraintStart_toStartOf="@+id/glMyList_2"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

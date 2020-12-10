@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.example.apphomemanager.WaterTankSetupActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline45"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivBackWTS"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:onClick="buttonClicked"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/back" />
+
+                <ImageView
+                    android:id="@+id/ivSendWTS"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:onClick="buttonClicked"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/save" />
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout3"
+                            android:layout_width="0dp"
+                            android:layout_height="200dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <EditText
+                                android:id="@+id/etBox1WTS"
+                                android:layout_width="213dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:ems="10"
+                                android:inputType="textPersonName"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                                app:layout_constraintTop_toBottomOf="@+id/tvPathWTS" />
+
+                            <EditText
+                                android:id="@+id/etBox2WTS"
+                                android:layout_width="213dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="2dp"
+                                android:ems="10"
+                                android:inputType="textPersonName"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                                app:layout_constraintTop_toBottomOf="@+id/etBox1WTS" />
+
+                            <EditText
+                                android:id="@+id/etBox3WTS"
+                                android:layout_width="213dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="2dp"
+                                android:ems="10"
+                                android:inputType="textPersonName"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline12"
+                                app:layout_constraintTop_toBottomOf="@+id/etBox2WTS" />
+
+                            <TextView
+                                android:id="@+id/tvReservoirPath3WTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/caixa"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBox3WTS"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <TextView
+                                android:id="@+id/tvPathWTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/endereco"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="26dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <TextView
+                                android:id="@+id/tvReservoirPath1WTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/caixa"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBox1WTS"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <TextView
+                                android:id="@+id/tvReservoirPath2WTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/caixa"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBox2WTS"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.35" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout4"
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+                            <EditText
+                                android:id="@+id/etBoxLHWTS"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:numeric="integer"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline11"
+                                app:layout_constraintTop_toBottomOf="@+id/tvLevelsWTS" />
+
+                            <EditText
+                                android:id="@+id/etBoxLLWTS"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="2dp"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:numeric="integer"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline11"
+                                app:layout_constraintTop_toBottomOf="@+id/etBoxLHWTS" />
+
+                            <TextView
+                                android:id="@+id/tvLevelLWTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/inf"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBoxLLWTS"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <TextView
+                                android:id="@+id/tvLevelsWTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/nivel"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="26dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <TextView
+                                android:id="@+id/tvLevelHWTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/sup"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBoxLHWTS"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.35" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="52dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

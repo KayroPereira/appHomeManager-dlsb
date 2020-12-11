@@ -50,7 +50,7 @@ tools:context=".listacompras.FragMyList">
                 android:tag="clearBasket"
                 android:text="@string/clearBasket"
                 android:textColor="@color/colorFontMain"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/ivClearBasketMYL"
                 app:layout_constraintStart_toEndOf="@+id/ivClearBasketMYL" />
 
@@ -64,7 +64,7 @@ tools:context=".listacompras.FragMyList">
                 android:tag="clearList"
                 android:text="@string/clearList"
                 android:textColor="@color/colorFontMain"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/ivClearListMYL"
                 app:layout_constraintEnd_toStartOf="@+id/glMyList_5" />
 

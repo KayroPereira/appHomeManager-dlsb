@@ -136,7 +136,7 @@ public class PumpProtectActivity extends AppCompatActivity {
 
             case R.id.ivSetupPPT:
                 //Toast.makeText(getApplicationContext(), "btBoxSend On", Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(this, WaterTankSetupActivity.class);
+                Intent it = new Intent(this, PumpProtectSetupActivity.class);
                 startActivity(it);
                 break;
 

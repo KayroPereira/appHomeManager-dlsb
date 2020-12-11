@@ -57,7 +57,7 @@ public class ConstantsApp {
     final String pathStmPPT = "/stm";
     final String pathTdwPPT = "/tdw";
     final String pathTraPPT = "/tra";
-    final String pathTrPPT = "/trm";
+    final String pathTrmPPT = "/trm";
     final String pathVzPPT = "/vz";
 
     final String deviceType[] = {"Bomba", "Válvula"};
@@ -105,8 +105,8 @@ public class ConstantsApp {
         return pathTraPPT;
     }
 
-    public String getPathTrPPT() {
-        return pathTrPPT;
+    public String getPathTrmPPT() {
+        return pathTrmPPT;
     }
 
     public String getPathVzPPT() {

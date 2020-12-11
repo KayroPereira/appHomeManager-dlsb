@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">appHomeManagerV14</string>
-    <!--<string name="networkName">HomeManager</string>     voltar para esta rede         -->
-    <string name="networkName">NetWifi2</string>
+    <string name="networkName">HomeManager</string>     voltar para esta rede
+<!--    <string name="networkName">NetWifi2</string>-->
 
     <!-- NetworkConfiguration -->
     <string name="conexao">Conexão</string>
@@ -189,6 +189,13 @@
     <string name="msgRearmePPT">Religar em</string>
     <string name="horaPPT">h</string>
     <string name="minutoPPT">min</string>
+
+    <!-- pump protection setup-->
+    <string name="titlePPTS">Configuração</string>
+    <string name="delayAguaPPTS">Tempo até a água chegar no reservatório</string>
+    <string name="msgTempoSegPPTS">Tempo em segundos</string>
+    <string name="delayRearmPPTS">Tempo para religar a bomba</string>
+    <string name="msgTempoMinPPTS">Tempo em minutos</string>
 
     <!-- water tank -->
     <string name="endereco">Endereço</string>

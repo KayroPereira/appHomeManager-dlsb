@@ -2,9 +2,8 @@ package com.example.apphomemanager.Communication;
 
 import android.util.Log;
 
-import androidx.core.util.LogWriter;
-
 import com.example.apphomemanager.GeneralUse.ComponentStatus;
+import com.example.apphomemanager.GeneralUse.PumpProtection;
 import com.example.apphomemanager.GeneralUse.WaterTankData;
 import com.example.apphomemanager.listacompras.ConstantsApp;
 import com.example.apphomemanager.listacompras.DBProduto;
@@ -16,7 +15,8 @@ import java.util.ArrayList;
 
 public class CommFirebase {
 
-    private ConstantsApp constant = new ConstantsApp();
+    private ConstantsApp constantListaCompras = new ConstantsApp();
+    private com.example.apphomemanager.GeneralUse.ConstantsApp constantGeneralUse = new com.example.apphomemanager.GeneralUse.ConstantsApp();
 
     public ComponentStatus getOutPut(DataSnapshot dataSnapshot, String room){
         ComponentStatus outPuts = new ComponentStatus();
@@ -102,6 +102,45 @@ public class CommFirebase {
         return data;
     }
 
+    public PumpProtection getDataPumpProtection(DataSnapshot dataSnapshot){
+        PumpProtection data = new PumpProtection();
+
+        //en, err, flg, sb, st, stm, tdw, tra, trm, vz
+
+//        Log.i("teste", "path: " + constantGeneralUse.getPathRoot() + constantGeneralUse.getPathPumpProtect());
+
+        DataSnapshot path = dataSnapshot.child(constantGeneralUse.getPathRoot() + constantGeneralUse.getPathPumpProtect());
+
+        try {
+//            Log.i("teste", "en: " + Integer.parseInt(path.child("en").getValue().toString()));
+//            Log.i("teste", "err: " + Integer.parseInt(path.child("err").getValue().toString()));
+//            Log.i("teste", "flg: " + Integer.parseInt(path.child("flg").getValue().toString()));
+//            Log.i("teste", "sb: " + Integer.parseInt(path.child("sb").getValue().toString()));
+//            Log.i("teste", "st: " + Integer.parseInt(path.child("st").getValue().toString()));
+//            Log.i("teste", "stm: " + Integer.parseInt(path.child("stm").getValue().toString()));
+//            Log.i("teste", "tdw: " + Integer.parseInt(path.child("tdw").getValue().toString()));
+//            Log.i("teste", "tra: " + Integer.parseInt(path.child("tra").getValue().toString()));
+//            Log.i("teste", "trm: " + Integer.parseInt(path.child("trm").getValue().toString()));
+//            Log.i("teste", "vz: " + Integer.parseInt(path.child("vz").getValue().toString()));
+
+            data.setEn(Integer.parseInt(path.child("en").getValue().toString()));
+            data.setErr(Integer.parseInt(path.child("err").getValue().toString()));
+            data.setFlg(Integer.parseInt(path.child("flg").getValue().toString()));
+            data.setSb(Integer.parseInt(path.child("sb").getValue().toString()));
+            data.setSt(Integer.parseInt(path.child("st").getValue().toString()));
+            data.setStm(Integer.parseInt(path.child("stm").getValue().toString()));
+            data.setTdw(Integer.parseInt(path.child("tdw").getValue().toString()));
+            data.setTra(Integer.parseInt(path.child("tra").getValue().toString()));
+            data.setTrm(Integer.parseInt(path.child("trm").getValue().toString()));
+            data.setVz(Integer.parseInt(path.child("vz").getValue().toString()));
+
+        }catch(Exception ex){
+            Log.w("Firebase", "Erro no download / conversão dos dados firebase");
+//            Log.i("teste", "Erro no download / conversão dos dados firebase");
+        }
+        return data;
+    }
+
     public String getItem(DataSnapshot dataSnapshot, String mode) {
 
         String item;
@@ -123,8 +162,8 @@ public class CommFirebase {
             DataSnapshot dataList = dataSnapshot.child(path);
             for (DataSnapshot temp : dataList.getChildren()) {
                 for (DataSnapshot temp1 : temp.getChildren()) {
-                    if (mode == constant.getFlgDsp())
-                        list.add(new DBProduto(-1, Integer.parseInt(temp.getKey()), temp1.getKey(), (float) 1.0, Integer.parseInt(temp1.getValue().toString()), constant.getStatusOn()));
+                    if (mode == constantListaCompras.getFlgDsp())
+                        list.add(new DBProduto(-1, Integer.parseInt(temp.getKey()), temp1.getKey(), (float) 1.0, Integer.parseInt(temp1.getValue().toString()), constantListaCompras.getStatusOn()));
                     else{
                         String value[] = temp1.getValue().toString().split("#");
                         list.add(new DBProduto(-1, Integer.parseInt(temp.getKey()), temp1.getKey(), Float.parseFloat(value[0]), Integer.parseInt(value[1]), Integer.parseInt(value[2])));

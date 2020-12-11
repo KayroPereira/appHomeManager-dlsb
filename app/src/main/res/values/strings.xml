@@ -26,6 +26,7 @@
     <string name="titleConfiguration">Configuração</string>
     <string name="titleDoorLock">Door Lock</string>
     <string name="titleConfigCard">Cadastrar Cartão</string>
+    <string name="titleConfigUser">Cadastrar Acesso Usuário</string>
     <string name="wifi">Wifi</string>
     <string name="rfid">RFID</string>
 
@@ -138,15 +139,16 @@
     <string name="cadastro">Cadastra-se</string>
     <string name="btnetwork">Configuração</string>
 
-    <string name="dgLogin">Digite o seu e-mail</string>
-    <string name="dgPassword">Digite sua senha</string>
+    <string name="dgLogin">Digite um e-mail</string>
+    <string name="dgPassword">Digite uma senha</string>
     <string name="dgConfirmePassword">Confirmar senha</string>
 
     <string name="fvssid">Favor inserir o SSID</string>
-    <string name="fvEmail">Favor inserir seu e-mail</string>
-    <string name="fvSenha">Favor inserir sua senha</string>
+    <string name="fvEmail">Favor inserir um e-mail</string>
+    <string name="fvSenha">Favor inserir uma senha</string>
+    <string name="msgLenPassword">A senha deve ter ao menos 6 caracteres</string>
     <string name="fvpassnetword">Favor inserir a senha da rede</string>
-    <string name="fvcSenha">Favor inserir sua senha novamente</string>
+    <string name="fvcSenha">Favor inserir a senha novamente</string>
 
     <string name="entrada">Entrada</string>
     <string name="sala">Sala</string>
@@ -161,6 +163,7 @@
     <string name="passwordErrorLength">A senha contém mais de 35 caracteres</string>
     <string name="networkError">Erro ao configurar a rede</string>
 
+    <string name="tryRegister">Cadastrando Usuário</string>
     <string name="registroOk">Registro realizado com sucesso</string>
     <string name="networkOk">Rede configurada com sucesso</string>
 
@@ -171,7 +174,21 @@
     <string name="unidentified">unidentified</string>
 
     <!-- pump protection -->
+    <string name="pumpTitle">Proteção Bomba</string>
     <string name="pump">Bomba</string>
+    <string name="boia">Boia</string>
+    <string name="autoPPT">Auto</string>
+    <string name="manualPPT">Manual</string>
+    <string name="falhaPPT">Falha</string>
+    <string name="timeRearmerPPT">Rearme</string>
+    <string name="boiaAcionada">Acionada</string>
+    <string name="boiaDesacionada">Desacionada</string>
+    <string name="fluxoDePPT">Fluxo de</string>
+    <string name="pulso">pulso</string>
+    <string name="pulsos">pulsos</string>
+    <string name="msgRearmePPT">Religar em</string>
+    <string name="horaPPT">h</string>
+    <string name="minutoPPT">min</string>
 
     <!-- water tank -->
     <string name="endereco">Endereço</string>

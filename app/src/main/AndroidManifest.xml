@@ -66,6 +66,9 @@
             android:name=".listacompras.BuyListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".PumpProtectActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>

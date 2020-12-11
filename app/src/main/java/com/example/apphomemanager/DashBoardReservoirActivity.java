@@ -15,6 +15,7 @@ public class DashBoardReservoirActivity extends AppCompatActivity {
     private ImageView ivBackDBR;
     private ImageView ivCisternDBR;
     private ImageView ivWaterTankDBR;
+    private ImageView ivPumpProtectionDBR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class DashBoardReservoirActivity extends AppCompatActivity {
         ivBackDBR = (ImageView) findViewById(R.id.ivBackDBR);
         ivCisternDBR = (ImageView) findViewById(R.id.ivCisternDBR);
         ivWaterTankDBR = (ImageView) findViewById(R.id.ivWaterTankDBR);
+        ivPumpProtectionDBR = (ImageView) findViewById(R.id.ivPumpProtectionDBR);
 
         ivCisternDBR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +41,16 @@ public class DashBoardReservoirActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(DashBoardReservoirActivity.this, WaterTankActivity.class);
+                //it.putExtra("mode", new ConstantsApp().getCISTERN());
+                it.putExtra("mode", new ConstantsApp().getWATER_TANK());
+                startActivity(it);
+            }
+        });
+
+        ivPumpProtectionDBR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(DashBoardReservoirActivity.this, PumpProtectActivity.class);
                 //it.putExtra("mode", new ConstantsApp().getCISTERN());
                 it.putExtra("mode", new ConstantsApp().getWATER_TANK());
                 startActivity(it);

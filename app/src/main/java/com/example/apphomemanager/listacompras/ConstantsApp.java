@@ -12,7 +12,11 @@ public class ConstantsApp {
     final int PAGER_1 = 1;
     final int PAGER_2 = 2;
 
+    final int LEN_PASSWORD_EMAIL = 6;
+
     final int rangeRandom = 10000;
+
+    final String pathRoot = "manager_dlsb/";
 
     final String nameCategory[] = {"Mercado", "Lanches", "Bebidas", "Frios", "Limpeza", "Casa", "Carnes", "Peixes", "Frutas e Verduras", "Temperos", "Pets", "Outros"};
 
@@ -28,6 +32,14 @@ public class ConstantsApp {
     final int flgMlst = 2;
 
     final String pathFlgMlst = "/flgMlst";
+
+    public int getLEN_PASSWORD_EMAIL() {
+        return LEN_PASSWORD_EMAIL;
+    }
+
+    public String getPathRoot() {
+        return pathRoot;
+    }
 
     public int getPAGER_0() {
         return PAGER_0;
@@ -88,11 +100,11 @@ public class ConstantsApp {
     }
 
     public String getPathMinhaLista() {
-        return pathMinhaLista;
+        return getPathRoot() + pathMinhaLista;
     }
 
     public String getPathDespensa() {
-        return pathDespensa;
+        return getPathRoot() + pathDespensa;
     }
 
     public String[] getNameCategory() {

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    tools:context="com.example.apphomemanager.PumpProtectActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline43"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivSetupPPT"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:onClick="buttonClickedPPT"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/setup" />
+
+                <TextView
+                    android:id="@+id/tvTitlePPT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/abeezee"
+                    android:text="@string/pumpTitle"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/divider5"
+                    app:layout_constraintEnd_toStartOf="@+id/ivSetupPPT"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:targetApi="lollipop" />
+
+                <ImageView
+                    android:id="@+id/ivBackPPT"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:onClick="buttonClickedPPT"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/back" />
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline43"
+                app:layout_constraintVertical_bias="1.0">
+
+                <TextView
+                    android:id="@+id/tvLabelErroPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/abeezee"
+                    android:text="@string/falhaPPT"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline44PPT"
+                    tools:ignore="NotSibling"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/tvLabelRearmPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/abeezee"
+                    android:text="@string/timeRearmerPPT"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLabelErroPPT"
+                    tools:ignore="NotSibling"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/tvSubTitlePPT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/pump"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline2PPT"
+                    app:layout_constraintEnd_toStartOf="@+id/ivOnOffPPT"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivOnOffPPT"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:onClick="buttonClickedPPT"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline2PPT"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/btoff" />
+
+                <TextView
+                    android:id="@+id/tvBoxStatusPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="center_vertical"
+                    android:text="@string/offLine"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline50PPT"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2PPT"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/tvSensorTensaoBoiaPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvBoxVazaoPPT"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline50PPT"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBoxStatusPPT"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/tvBoxVazaoPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="center_vertical"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline44PPT"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline50PPT"
+                    tools:targetApi="lollipop" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2PPT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline44PPT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline48PPT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="170dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline44PPT"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline50PPT"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guideline2PPT">
+
+                    <SeekBar
+                        android:id="@+id/skbModePPT"
+                        style="@android:style/Widget.Material.SeekBar.Discrete"
+                        android:layout_width="150dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="3dp"
+                        android:max="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:targetApi="n" />
+
+                    <TextView
+                        android:id="@+id/tvskbHPPT"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/abeezee"
+                        android:text="@string/manualPPT"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/colorButtonNormal"
+                        android:textSize="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBoxStatusPPT"
+                        tools:ignore="NotSibling"
+                        tools:targetApi="lollipop" />
+
+                    <TextView
+                        android:id="@+id/tvskbLPPT"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/abeezee"
+                        android:text="@string/autoPPT"
+                        android:textAlignment="center"
+                        android:textColor="?android:attr/colorButtonNormal"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBoxStatusPPT"
+                        tools:ignore="NotSibling"
+                        tools:targetApi="lollipop" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout17"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline48PPT" />
+
+                <TextView
+                    android:id="@+id/tvErroPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline49PPT"
+                    app:layout_constraintTop_toTopOf="@+id/guideline44PPT"
+                    tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/tvTimeRearmPPT"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="center_vertical"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/colorButtonNormal"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline49PPT"
+                    app:layout_constraintTop_toBottomOf="@+id/tvErroPPT"
+                    tools:targetApi="lollipop" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline49PPT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintGuide_percent="0.3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline50PPT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintGuide_percent="0.45"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="52dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

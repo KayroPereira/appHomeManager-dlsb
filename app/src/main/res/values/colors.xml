@@ -31,4 +31,7 @@
     <color name="colorTab0">#C5ED0909</color>
     <color name="colorTab1">#D60024EC</color>
     <color name="colorTab2">#0E9A8D</color>
+
+
+    <color name="colorTextGreen">#1D8E22</color>
 </resources>

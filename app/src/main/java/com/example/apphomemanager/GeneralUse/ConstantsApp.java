@@ -24,6 +24,8 @@ public class ConstantsApp {
     final int LIGHT = 0;
     final int POWER = 1;
 
+    final String pathRoot = "manager_dlsb/";
+
     final String pathComodo[] = {"living", "kitchen", "bedroom1", "bedroom2", "bedroom3", "bedroom4", "bathroom1", "bathroom2", "hall"};
     final String pathComodoOutType[] = {"/l", "/p"};
     final String pathComodoOut[] = {"/o1", "/o2", "/o3", "/o4", "/o5", "/o6", "/o7", "/o8", "/o9", "/o10", "/o11", "/o12", "/o13", "/o14", "/o15", "/o16" };
@@ -46,6 +48,18 @@ public class ConstantsApp {
     final String pathErr = "/err";
     final String pathLevel = "/level";
 
+    final String pathPumpProtect = "pumpProtection";
+    final String pathEnPPT = "/en";
+    final String pathErrPPT = "/err";
+    final String pathFlgPPT = "/flg";
+    final String pathSbPPT = "/sb";
+    final String pathStPPT = "/st";
+    final String pathStmPPT = "/stm";
+    final String pathTdwPPT = "/tdw";
+    final String pathTraPPT = "/tra";
+    final String pathTrPPT = "/trm";
+    final String pathVzPPT = "/vz";
+
     final String deviceType[] = {"Bomba", "Válvula"};
 
     final String imagePath[] = {"ct", "wt"};
@@ -53,6 +67,59 @@ public class ConstantsApp {
 
     final String erros[] = {"erro1", "erro2", "erro3"};
 
+    final String[] MESAGENS_ERROS = {"Sem falhas", "Poço vazio", "Proteção desativada", "Erro não cadastrado"};
+
+    public String[] getMESAGENS_ERROS() {
+        return MESAGENS_ERROS;
+    }
+
+    public String getPathEnPPT() {
+        return pathEnPPT;
+    }
+
+    public String getPathErrPPT() {
+        return pathErrPPT;
+    }
+
+    public String getPathFlgPPT() {
+        return pathFlgPPT;
+    }
+
+    public String getPathSbPPT() {
+        return pathSbPPT;
+    }
+
+    public String getPathStPPT() {
+        return pathStPPT;
+    }
+
+    public String getPathStmPPT() {
+        return pathStmPPT;
+    }
+
+    public String getPathTdwPPT() {
+        return pathTdwPPT;
+    }
+
+    public String getPathTraPPT() {
+        return pathTraPPT;
+    }
+
+    public String getPathTrPPT() {
+        return pathTrPPT;
+    }
+
+    public String getPathVzPPT() {
+        return pathVzPPT;
+    }
+
+    public String getPathPumpProtect() {
+        return pathPumpProtect;
+    }
+
+    public String getPathRoot() {
+        return pathRoot;
+    }
 
     public String getURL_BOARD() {
         return URL_BOARD;

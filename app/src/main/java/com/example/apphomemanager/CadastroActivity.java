@@ -15,14 +15,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.apphomemanager.listacompras.ConstantsApp;
+import com.google.android.gms.auth.api.accounttransfer.zzu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 
 public class CadastroActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
+    private ConstantsApp constants = new ConstantsApp();
 
     private EditText eTLogin;
     private EditText eTPassword;
@@ -79,8 +84,15 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
+//        Toast.makeText(getApplicationContext(), "Len pass: " + eTPassword.getText().toString().length() + " len def: " +  constants.getLEN_PASSWORD_EMAIL()
+//                + " codicao: " + (eTPassword.getText().toString().length() < constants.getLEN_PASSWORD_EMAIL()), Toast.LENGTH_LONG).show();
+
         if (TextUtils.isEmpty(eTPassword.getText().toString())) {
             Toast.makeText(getApplicationContext(), R.string.fvSenha, Toast.LENGTH_LONG).show();
+            componentControl(true);
+            return;
+        }else if(eTPassword.getText().toString().length() < constants.getLEN_PASSWORD_EMAIL()){
+            Toast.makeText(getApplicationContext(), R.string.msgLenPassword, Toast.LENGTH_SHORT).show();
             componentControl(true);
             return;
         }
@@ -93,14 +105,24 @@ public class CadastroActivity extends AppCompatActivity {
 
         if (!eTPassword.getText().toString().equals(geteTPasswordConfirm.getText().toString())){
             Toast.makeText(getApplicationContext(), R.string.senhaError, Toast.LENGTH_SHORT).show();
+
             componentControl(true);
             return;
         }
+
+        //Toast.makeText(getApplicationContext(), "User: " + eTLogin.getText().toString() + " Senha: " +  eTPassword.getText().toString(), Toast.LENGTH_LONG).show();
 
         mAuth.createUserWithEmailAndPassword(eTLogin.getText().toString(), eTPassword.getText().toString())
         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
+                //((FirebaseAuthInvalidCredentialsException) ((zzu) task).zzab).getErrorCode()
+
+//                Toast.makeText(getApplicationContext(), "Erro: " + task.getException(), Toast.LENGTH_LONG).show();
+
+
+
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), R.string.registroOk, Toast.LENGTH_LONG).show();
                     //progressBar.setVisibility(View.GONE);
@@ -116,7 +138,7 @@ public class CadastroActivity extends AppCompatActivity {
         });
 
         componentControl(true);
-        Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.tryRegister, Toast.LENGTH_LONG).show();
     }
 
     public void hideSoftKeyboard() {

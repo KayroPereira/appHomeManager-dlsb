@@ -94,7 +94,7 @@ public class HallActivity extends AppCompatActivity {
 
         ivLightOnOff.setImageResource(R.drawable.btoff);
 
-        PATH_DEVICE = constants.getPathComodo()[TYPE_DEVICE];
+        PATH_DEVICE = constants.getPathRoot() + constants.getPathComodo()[TYPE_DEVICE];
 
         controlComponent(false, 0);
         controlComponent(false, 1);

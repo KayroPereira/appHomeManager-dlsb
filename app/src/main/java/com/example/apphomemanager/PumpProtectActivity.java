@@ -1,5 +1,7 @@
 package com.example.apphomemanager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +37,8 @@ public class PumpProtectActivity extends AppCompatActivity {
     private ImageView ivOnOffPPT;
 
     private SeekBar skbModePPT;
+
+    private AlertDialog alerta;
 
     private PumpProtection datasPumpProtection = new PumpProtection();
 
@@ -78,7 +83,37 @@ public class PumpProtectActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
-                new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH+constants.getPathStmPPT(), i);
+                if (i > 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PumpProtectActivity.this);
+                    builder.setTitle(getString(R.string.msgTituloModoManualPPT));
+                    builder.setMessage(getString(R.string.msgModoManualPPT));
+                    builder.setPositiveButton(getString(R.string.sim), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            try {
+                                //ivDoorLockDB.setImageResource(R.drawable.btlight_on1);
+                                //                            dbOutStatus.child("door").child("d1").setValue(1);
+                                new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH + constants.getPathStmPPT(), i);
+                                Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualAtivadoPPT), Toast.LENGTH_SHORT).show();
+                            } catch (Exception e) {
+                                Toast.makeText(getApplicationContext(), getString(R.string.msgErroAtualizacaoDadosPPT), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                    builder.setNegativeButton(getString(R.string.nao), new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+
+                            datasPumpProtection.setStm(0);
+                            skbModePPT.setProgress(datasPumpProtection.getStm());
+                            Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualNaoAtivadoPPT), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    alerta = builder.create();
+                    alerta.show();
+                }else{
+                    new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH + constants.getPathStmPPT(), i);
+                    Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualDesativadoPPT), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -185,10 +220,11 @@ public class PumpProtectActivity extends AppCompatActivity {
             tvLabelRearmPPT.setVisibility(View.GONE);
         }
 
-        int greenPerson = getResources().getColor(R.color.colorTextGreen);
+        int greenPerson = getResources().getColor(R.color.colorTextGreen),
+            orangePerson = getResources().getColor(R.color.colorTextOrange);
 
-        tvBoxStatusPPT.setTextColor(datasPumpProtection.getSb() == 0 ? Color.BLUE : greenPerson);
-        tvSensorTensaoBoiaPPT.setTextColor(datasPumpProtection.getSt() == 0 ? Color.BLUE : greenPerson);
+        tvBoxStatusPPT.setTextColor(datasPumpProtection.getSb() == 0 ? orangePerson : greenPerson);
+        tvSensorTensaoBoiaPPT.setTextColor(datasPumpProtection.getSt() == 0 ? orangePerson : greenPerson);
         tvBoxVazaoPPT.setTextColor(datasPumpProtection.getVz() > 0 ? greenPerson : Color.BLUE);
 
         tvErroPPT.setTextColor(datasPumpProtection.getErr() == 0 ? greenPerson : Color.RED);

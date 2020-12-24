@@ -190,6 +190,13 @@
     <string name="horaPPT">h</string>
     <string name="minutoPPT">min</string>
 
+    <string name="msgTituloModoManualPPT">Ativar Modo Manual</string>
+    <string name="msgModoManualPPT">Deseja ativar o modo manual?</string>
+    <string name="msgModoManualAtivadoPPT">Modo manual ativado</string>
+    <string name="msgErroAtualizacaoDadosPPT">Erro ao atualizar os dados</string>
+    <string name="msgModoManualNaoAtivadoPPT">Modo manual não ativado</string>
+    <string name="msgModoManualDesativadoPPT">Modo manual desativado</string>
+
     <!-- pump protection setup-->
     <string name="titlePPTS">Configuração</string>
     <string name="delayAguaPPTS">Tempo até a água chegar no reservatório</string>

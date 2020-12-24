@@ -67,7 +67,7 @@ public class ConstantsApp {
 
     final String erros[] = {"erro1", "erro2", "erro3"};
 
-    final String[] MESAGENS_ERROS = {"Sem falhas", "Poço vazio", "Proteção desativada", "Erro não cadastrado"};
+    final String[] MESAGENS_ERROS = {"Sem falhas", "Erro de autenticação", "Erro de comunicação", "",  "Modo de configuração", "", "", "", "", "", "", "Poço vazio", "Proteção desativada", "Desligado Manualmente", "Fluxo de água indevido", "Erro não cadastrado"};
 
     public String[] getMESAGENS_ERROS() {
         return MESAGENS_ERROS;

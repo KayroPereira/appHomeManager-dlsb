@@ -189,6 +189,9 @@
     <string name="msgRearmePPT">Religar em</string>
     <string name="horaPPT">h</string>
     <string name="minutoPPT">min</string>
+    <string name="msgTituloConfiguracaoSensorPPT">Configuração do sensor</string>
+    <string name="msgMaximoPulsosPPT">Pulsos máximo</string>
+    <string name="msgPercentualPulsosPPT">Mínimo pulsos %</string>
 
     <string name="msgTituloModoManualPPT">Ativar Modo Manual</string>
     <string name="msgModoManualPPT">Deseja ativar o modo manual?</string>

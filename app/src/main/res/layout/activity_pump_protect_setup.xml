@@ -106,16 +106,86 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            app:layout_constraintGuide_percent="0.5" />
+                            app:layout_constraintGuide_percent="0.6" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/constraintLayout4"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            app:layout_constraintBottom_toTopOf="@+id/guideline4PPTS"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvTitleFlowWaterPPTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="30dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/msgTituloConfiguracaoSensorPPT"
+                                android:textColor="@android:color/holo_blue_dark"
+                                android:textSize="20dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvMsgRearmPPTS"
+                                tools:targetApi="lollipop" />
+
+                            <TextView
+                                android:id="@+id/tvMsgFlowWaterPPTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/msgPercentualPulsosPPT"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBoxFlowPercentPPTS"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline11PPTS"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <EditText
+                                android:id="@+id/etBoxFlowPercentPPTS"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="10dp"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:numeric="integer"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline11PPTS"
+                                app:layout_constraintTop_toBottomOf="@+id/etBoxFlowMaxPPTS" />
+
+                            <TextView
+                                android:id="@+id/tvMsgFlowPercentPPTS"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/abeezee"
+                                android:text="@string/msgMaximoPulsosPPT"
+                                android:textColor="?android:attr/colorButtonNormal"
+                                android:textSize="22dp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/etBoxFlowMaxPPTS"
+                                app:layout_constraintEnd_toStartOf="@id/guideline11PPTS"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:targetApi="lollipop" />
+
+                            <EditText
+                                android:id="@+id/etBoxFlowMaxPPTS"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="10dp"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:numeric="integer"
+                                android:textAlignment="center"
+                                app:layout_constraintStart_toStartOf="@+id/guideline11PPTS"
+                                app:layout_constraintTop_toBottomOf="@+id/tvTitleFlowWaterPPTS" />
 
                             <EditText
                                 android:id="@+id/etBoxDelayPPTS"
@@ -176,7 +246,7 @@
                                 android:id="@+id/tvTitleRearmPPTS"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="50dp"
+                                android:layout_marginTop="30dp"
                                 android:fontFamily="@font/abeezee"
                                 android:text="@string/delayRearmPPTS"
                                 android:textColor="@android:color/holo_blue_dark"

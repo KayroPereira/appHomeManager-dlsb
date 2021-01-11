@@ -23,6 +23,8 @@ public class PumpProtectSetupActivity extends AppCompatActivity {
 
     private EditText etBoxDelayPPTS;
     private EditText etBoxRearmPPTS;
+    private EditText etBoxFlowMaxPPTS;
+    private EditText etBoxFlowPercentPPTS;
 
     private ImageView ivSendPPTS;
     private ImageView ivBackPPTS;
@@ -46,6 +48,8 @@ public class PumpProtectSetupActivity extends AppCompatActivity {
 
         etBoxDelayPPTS = (EditText) findViewById(R.id.etBoxDelayPPTS);
         etBoxRearmPPTS = (EditText) findViewById(R.id.etBoxRearmPPTS);
+        etBoxFlowMaxPPTS = (EditText) findViewById(R.id.etBoxFlowMaxPPTS);
+        etBoxFlowPercentPPTS = (EditText) findViewById(R.id.etBoxFlowPercentPPTS);
 
         ivSendPPTS = (ImageView) findViewById(R.id.ivSendPPTS);
         ivBackPPTS = (ImageView) findViewById(R.id.ivBackPPTS);
@@ -76,8 +80,9 @@ public class PumpProtectSetupActivity extends AppCompatActivity {
     }
 
     private boolean isUpdateData(PumpProtection data){
-        //en, err, flg, sb, st, stm, tdw, tra, trm, vz
-        if ((data.getTdw() != datasPumpProtection.getTdw()) || (data.getTrm() != datasPumpProtection.getTrm())) {
+        //en, err, flg, sb, st, stm, tdw, tra, trm, vz, vzm, pvz
+        if ((data.getTdw() != datasPumpProtection.getTdw()) || (data.getTrm() != datasPumpProtection.getTrm())
+            || (data.getVzm() != datasPumpProtection.getVzm()) || (data.getPvz() != datasPumpProtection.getPvz())) {
             datasPumpProtection = data;
             return true;
         }
@@ -117,6 +122,8 @@ public class PumpProtectSetupActivity extends AppCompatActivity {
 
         gate.sendDataInt(dbOutStatus, FULL_PATH+constants.getPathTdwPPT(), Integer.parseInt(etBoxDelayPPTS.getText().toString()));
         gate.sendDataInt(dbOutStatus, FULL_PATH+constants.getPathTrmPPT(), Integer.parseInt(etBoxRearmPPTS.getText().toString()));
+        gate.sendDataInt(dbOutStatus, FULL_PATH+constants.getPathVzmPPT(), Integer.parseInt(etBoxFlowMaxPPTS.getText().toString()));
+        gate.sendDataInt(dbOutStatus, FULL_PATH+constants.getPathPvzPPT(), Integer.parseInt(etBoxFlowPercentPPTS.getText().toString()));
 
         gate.sendDataInt(dbOutStatus, FULL_PATH+constants.getPathFlgPPT(), 1);
         Toast.makeText(getApplicationContext(), getString(R.string.msg3), Toast.LENGTH_SHORT).show();
@@ -126,5 +133,7 @@ public class PumpProtectSetupActivity extends AppCompatActivity {
 
         etBoxDelayPPTS.setText(datasPumpProtection.getTdw()+"");
         etBoxRearmPPTS.setText(datasPumpProtection.getTrm()+"");
+        etBoxFlowMaxPPTS.setText(datasPumpProtection.getVzm()+"");
+        etBoxFlowPercentPPTS.setText(datasPumpProtection.getPvz()+"");
     }
 }

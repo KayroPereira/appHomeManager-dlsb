@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -47,6 +48,9 @@ public class PumpProtectActivity extends AppCompatActivity {
     private String  PATH_ROOT,
                     FULL_PATH;
 
+    private int valueSeebarOld = 0,
+                targetPercentFlowWater = 0;
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference();
 
@@ -83,45 +87,71 @@ public class PumpProtectActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
-                if (i > 0) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(PumpProtectActivity.this);
-                    builder.setTitle(getString(R.string.msgTituloModoManualPPT));
-                    builder.setMessage(getString(R.string.msgModoManualPPT));
-                    builder.setPositiveButton(getString(R.string.sim), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            try {
-                                //ivDoorLockDB.setImageResource(R.drawable.btlight_on1);
-                                //                            dbOutStatus.child("door").child("d1").setValue(1);
-                                new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH + constants.getPathStmPPT(), i);
-                                Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualAtivadoPPT), Toast.LENGTH_SHORT).show();
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), getString(R.string.msgErroAtualizacaoDadosPPT), Toast.LENGTH_SHORT).show();
+//                Log.d("teste", "Changed: " + "i: " + i + " b: " + b);
+
+                if (b) {
+                    if (i > 0) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(PumpProtectActivity.this);
+                        builder.setTitle(getString(R.string.msgTituloModoManualPPT));
+                        builder.setMessage(getString(R.string.msgModoManualPPT));
+                        builder.setPositiveButton(getString(R.string.sim), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface arg0, int arg1) {
+
+                                valueSeebarOld = seekBar.getProgress();
+
+                                if(updateFirebase(1)){
+                                    Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualAtivadoPPT), Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
 
-                    builder.setNegativeButton(getString(R.string.nao), new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
+                        builder.setNegativeButton(getString(R.string.nao), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface arg0, int arg1) {
 
-                            datasPumpProtection.setStm(0);
-                            skbModePPT.setProgress(datasPumpProtection.getStm());
-                            Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualNaoAtivadoPPT), Toast.LENGTH_SHORT).show();
+                                if(updateFirebase(0)){
+                                    Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualNaoAtivadoPPT), Toast.LENGTH_SHORT).show();
+                                }
+
+                                datasPumpProtection.setStm(0);
+                                skbModePPT.setProgress(datasPumpProtection.getStm());
+
+                                valueSeebarOld = seekBar.getProgress();
+
+//                            Log.d("teste", "não: " + "i: " + i + " b: " + b);
+//                            Log.d("teste", "Nao ------> value atual: " + seekBar.getProgress() + " value old: " + valueSeebarOld);
+                            }
+                        });
+
+                        alerta = builder.create();
+                        alerta.show();
+                    }else {
+
+//                        new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH + constants.getPathStmPPT(), 0);
+                        if(updateFirebase(0)) {
+                            Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualDesativadoPPT), Toast.LENGTH_SHORT).show();
                         }
-                    });
-                    alerta = builder.create();
-                    alerta.show();
-                }else{
-                    new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH + constants.getPathStmPPT(), i);
-                    Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualDesativadoPPT), Toast.LENGTH_SHORT).show();
+
+//                    Log.d("teste", "i <= 0: " + "i: " + i + " b: " + b);
+
+                        valueSeebarOld = seekBar.getProgress();
+//                    Log.d("teste", "i == 0 ------> value atual: " + seekBar.getProgress() + " value old: " + valueSeebarOld);
+                    }
                 }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+//                Log.d("teste", "Start ------> value atual: " + seekBar.getProgress() + " value old: " + valueSeebarOld);
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+//                Log.d("teste", "Stop ------> value atual: " + seekBar.getProgress() + " value old: " + valueSeebarOld);
+
+                if(seekBar.getProgress() != valueSeebarOld){
+                    skbModePPT.setProgress(valueSeebarOld);
+                    valueSeebarOld = seekBar.getProgress();
+                }
             }
         });
 
@@ -132,8 +162,12 @@ public class PumpProtectActivity extends AppCompatActivity {
 
 //                Log.i("teste", tempData.toString());
 
-                if (isUpdateData(tempData))
+                if (isUpdateData(tempData)) {
+//                    Log.d("teste", "Vzm: " + datasPumpProtection.getVzm());
+//                    Log.d("teste", "Pvz: " + datasPumpProtection.getPvz());
+                    targetPercentFlowWater = percentFlowWater(datasPumpProtection.getVzm(), datasPumpProtection.getPvz());
                     startComponents();
+                }
             }
 
             @Override
@@ -183,7 +217,7 @@ public class PumpProtectActivity extends AppCompatActivity {
 
     void startComponents() {
 
-        //en, err, flg, sb, st, stm, tdw, tra, trm, vz
+        //en, err, flg, sb, st, stm, tdw, tra, trm, vz, vzm, pvz
 
         if (datasPumpProtection.getEn() == 0) {
             ivOnOffPPT.setImageResource(R.drawable.btoff);
@@ -223,14 +257,19 @@ public class PumpProtectActivity extends AppCompatActivity {
         int greenPerson = getResources().getColor(R.color.colorTextGreen),
             orangePerson = getResources().getColor(R.color.colorTextOrange);
 
+//        Log.d("teste", "targetPercentFlowWater: " + targetPercentFlowWater);
+//        Log.d("teste", "datasPumpProtection: " + datasPumpProtection.getVz());
+
         tvBoxStatusPPT.setTextColor(datasPumpProtection.getSb() == 0 ? orangePerson : greenPerson);
         tvSensorTensaoBoiaPPT.setTextColor(datasPumpProtection.getSt() == 0 ? orangePerson : greenPerson);
-        tvBoxVazaoPPT.setTextColor(datasPumpProtection.getVz() > 0 ? greenPerson : Color.BLUE);
+//        tvBoxVazaoPPT.setTextColor(datasPumpProtection.getVz() > 0 ? greenPerson : Color.BLUE);
+        tvBoxVazaoPPT.setTextColor(datasPumpProtection.getVz() >= targetPercentFlowWater ? greenPerson : datasPumpProtection.getVz() == 0 ? Color.BLUE : Color.RED);
 
         tvErroPPT.setTextColor(datasPumpProtection.getErr() == 0 ? greenPerson : Color.RED);
         tvTimeRearmPPT.setTextColor(datasPumpProtection.getTra() < 6 ? greenPerson : Color.RED);
 
         skbModePPT.setProgress(datasPumpProtection.getStm());
+        valueSeebarOld = datasPumpProtection.getStm();
     }
 
     int[] splitTime(int time){
@@ -240,5 +279,20 @@ public class PumpProtectActivity extends AppCompatActivity {
         timeConvertido[1] = time % 60;
 
         return timeConvertido;
+    }
+
+    private boolean updateFirebase(int value){
+        try {
+            new CommFirebase().sendDataInt(dbOutStatus, FULL_PATH + constants.getPathStmPPT(), value);
+//            Toast.makeText(PumpProtectActivity.this, getString(R.string.msgModoManualAtivadoPPT), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), getString(R.string.msgErroAtualizacaoDadosPPT), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private int percentFlowWater(int pulse, int percent){
+        return (int) (pulse * ((float) percent / 100));
     }
 }

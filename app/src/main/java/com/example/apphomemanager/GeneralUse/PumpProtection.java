@@ -12,12 +12,14 @@ public class PumpProtection {
     private int tra;
     private int trm;
     private int vz;
+    private int vzm;
+    private int pvz;
 
     public PumpProtection(){
 
     }
 
-    public PumpProtection(int en, int err, int flg, int sb, int st, int stm, int tdw, int tra, int trm, int vz) {
+    public PumpProtection(int en, int err, int flg, int sb, int st, int stm, int tdw, int tra, int trm, int vz, int vzm, int pvz) {
         this.en = en;
         this.err = err;
         this.flg = flg;
@@ -28,6 +30,8 @@ public class PumpProtection {
         this.tra = tra;
         this.trm = trm;
         this.vz = vz;
+        this.vzm = vzm;
+        this.pvz = pvz;
     }
 
     public int getEn() {
@@ -110,6 +114,22 @@ public class PumpProtection {
         this.vz = vz;
     }
 
+    public int getVzm() {
+        return vzm;
+    }
+
+    public void setVzm(int vzm) {
+        this.vzm = vzm;
+    }
+
+    public int getPvz() {
+        return pvz;
+    }
+
+    public void setPvz(int pvz) {
+        this.pvz = pvz;
+    }
+
     @Override
     public String toString() {
         return "PumpProtection{" +
@@ -123,6 +143,8 @@ public class PumpProtection {
                 ", tra=" + tra +
                 ", trm=" + trm +
                 ", vz=" + vz +
+                ", vzm=" + vzm +
+                ", pvz=" + pvz +
                 '}';
     }
 }

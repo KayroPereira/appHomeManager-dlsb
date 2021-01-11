@@ -105,7 +105,7 @@ public class CommFirebase {
     public PumpProtection getDataPumpProtection(DataSnapshot dataSnapshot){
         PumpProtection data = new PumpProtection();
 
-        //en, err, flg, sb, st, stm, tdw, tra, trm, vz
+        //en, err, flg, sb, st, stm, tdw, tra, trm, vz, vzm, pvz
 
 //        Log.i("teste", "path: " + constantGeneralUse.getPathRoot() + constantGeneralUse.getPathPumpProtect());
 
@@ -133,6 +133,8 @@ public class CommFirebase {
             data.setTra(Integer.parseInt(path.child("tra").getValue().toString()));
             data.setTrm(Integer.parseInt(path.child("trm").getValue().toString()));
             data.setVz(Integer.parseInt(path.child("vz").getValue().toString()));
+            data.setVzm(Integer.parseInt(path.child("vzm").getValue().toString()));
+            data.setPvz(Integer.parseInt(path.child("pvz").getValue().toString()));
 
         }catch(Exception ex){
             Log.w("Firebase", "Erro no download / conversão dos dados firebase");
